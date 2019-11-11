@@ -48,7 +48,7 @@ module.exports = function (chai, utils) {
 
     utils.addMethod(chai.Assertion.prototype, "matchSnapshot", function (passedContext) {
         const actual = utils.flag(this, 'object');
-        const isForced = process.env.CHAI_SNAPSHOT_UPDATE || utils.flag(this, 'updateSnapshot') || process.argv.includes('--update');
+        const isForced = process.env.CHAI_SNAPSHOT_UPDATE || utils.flag(this, 'updateSnapshot') || process.argv.includes('--snapshot-update');
         const context = passedContext.test ? passedContext.test : passedContext
         const dir = path.dirname(context.file);
         const filename = path.basename(context.file);
