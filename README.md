@@ -45,7 +45,7 @@ describe("GET /hello", () =>{
     });
 });
 ```
-It will automatically create(if `CHAI_SNAPSHOT_UPDATE` environment variable to `true`) `__snapshots__` folder in same folder of specs and snapshot file like below
+It will automatically create(if `CHAI_SNAPSHOT_UPDATE` environment variable to `true` or `--update` is used) `__snapshots__` folder in same folder of specs and snapshot file like below
 ```javascript
 exports[`GET /hello : Should say Hello to Starnger 1`] = "Hello, stranger!";
 exports[`GET /hello : Should say Hello to Jhon 1`] = {
@@ -80,8 +80,8 @@ it("Should say Hello", () => {
 
 Or
 
-Set `CHAI_SNAPSHOT_UPDATE = true` to update the snapshots if there is any mismatch in any of the spec files even if `isForced` is not used.
+Set `CHAI_SNAPSHOT_UPDATE = true` or use `--update` to update the snapshots if there is any mismatch in any of the spec files even if `isForced` is not used.
 
-**Warning!:** Do not set `CHAI_SNAPSHOT_UPDATE = true` in build pipeline. If it is set, build will never fail even if there is no snapshots available in the `__snapshots__` folder.
+**Warning!:** Do not set `CHAI_SNAPSHOT_UPDATE = true` or use `--update` in build pipeline. If it is set, build will never fail even if there is no snapshots available in the `__snapshots__` folder.
 
 **Notes:** It is tested in `mocha v5.2.0` and `chai v4.2.0`.
